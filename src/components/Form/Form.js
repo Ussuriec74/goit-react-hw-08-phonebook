@@ -2,19 +2,13 @@ import { Component } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 export class InputForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  }
-  
-  
+   
   onSubmit = (values, action) => {
     this.props.addContact(values);
     action.resetForm();
   };
   
   render() {
-    // const { name, number } = this.state;
     return (
       <Formik onSubmit={this.onSubmit} initialValues={{ name: '', number: '' }}>
         <Form>
