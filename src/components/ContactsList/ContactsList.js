@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box } from 'components/Box';
 import React from 'react';
 import { ContactsItem, DeleteBtn } from 'components/ContactsList/ContactsList.styled';
@@ -12,3 +13,8 @@ export const ContactList = ({ contacts, onDeleteContact }) => (
     ))}
   </Box>
 );
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  onDeleteContact: PropTypes.func,
+};

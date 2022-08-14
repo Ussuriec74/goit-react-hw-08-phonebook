@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { Formik } from 'formik';
 import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
@@ -35,3 +36,7 @@ export class InputForm extends Component {
     )
   }
 }
+
+InputForm.propTypes = {
+  addContact: PropTypes.func,
+};
