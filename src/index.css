@@ -16,6 +16,10 @@ ul {
 
 }
 
+button {
+  cursor: pointer;
+}
+
 p,
 h1,
 h2,

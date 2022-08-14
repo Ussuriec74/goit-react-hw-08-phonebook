@@ -8,6 +8,8 @@ export const theme = {
     bgStats: '#F1F2F2',
     primaryText: '#000000',
     secondaryText: '#BCBEC0',
+    btnColor: '#E6E7E8',
+    accentColor: '#2398AB',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: {

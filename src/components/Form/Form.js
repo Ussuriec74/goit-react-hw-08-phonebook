@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik } from 'formik';
+import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
 
 export class InputForm extends Component {
    
@@ -11,25 +12,25 @@ export class InputForm extends Component {
   render() {
     return (
       <Formik onSubmit={this.onSubmit} initialValues={{ name: '', number: '' }}>
-        <Form>
-          <label>Name</label>
-          <Field
+        <FormWrapper>
+          <FormLabel>Name</FormLabel>
+          <FormItem
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-          <label>Number</label>
-          <Field
+          <FormLabel>Number</FormLabel>
+          <FormItem
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <button tape="submit">Add contact</button>
-        </Form>
+          <FormBtn tape="submit">Add contact</FormBtn>
+        </FormWrapper>
       </Formik>   
     )
   }
