@@ -6,7 +6,7 @@ import { ContactsListItem } from 'components/ContactsItem/ContactsItem';
 export const ContactList = ({ contacts, onDeleteContact }) => (
   <Box as="ul" ml={6} mt={5} width="480px">
     {contacts.map(({ name, id, number }) => (
-      <ContactsListItem key={id} name={name} number={number} onClick={() => onDeleteContact(id)} />
+      <ContactsListItem key={id} id={id} name={name} number={number} onClick={ onDeleteContact } />
     ))}
   </Box>
 );

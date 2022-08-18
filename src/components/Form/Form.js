@@ -1,18 +1,16 @@
 import PropTypes from 'prop-types';
-import { Component } from 'react';
 import { Formik } from 'formik';
 import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
 
-export class InputForm extends Component {
+export const InputForm = ({addContact}) => {
    
-  onSubmit = (values, action) => {
-    this.props.addContact(values);
+  const onSubmit = (values, action) => {
+    addContact(values);
     action.resetForm();
   };
   
-  render() {
     return (
-      <Formik onSubmit={this.onSubmit} initialValues={{ name: '', number: '' }}>
+      <Formik onSubmit={onSubmit} initialValues={{ name: '', number: '' }}>
         <FormWrapper>
           <FormLabel>Name</FormLabel>
           <FormItem
@@ -34,7 +32,7 @@ export class InputForm extends Component {
         </FormWrapper>
       </Formik>   
     )
-  }
+  
 }
 
 InputForm.propTypes = {
