@@ -38,15 +38,13 @@ export const App = () => {
   }
 
   const changeFilter = (evt) => {
-    setFilter({ filter: evt.currentTarget.value });
+    setFilter( evt.currentTarget.value );
   }
-  // const normalazedFilter = filter.toLowerCase();
 
   const getFilteredContacts = () => {
     
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase()));
-      // contact.name.toLowerCase().includes(filter.toLowerCase()));
   }
 
   const filteredContacts = getFilteredContacts();
