@@ -1,16 +1,23 @@
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/actions';
 import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
 
-export const InputForm = ({addContact}) => {
+export const InputForm = () => {
+
+  const dispatch = useDispatch();
    
-  const onSubmit = (values, action) => {
-    addContact(values);
-    action.resetForm();
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    dispatch(addContact(form.elements.name.value, form.elements.number.value));
+    form.reset();
   };
+
   
     return (
-      <Formik onSubmit={onSubmit} initialValues={{ name: '', number: '' }}>
+      <Formik onSubmit={handleSubmit} initialValues={{ name: '', number: '' }}>
         <FormWrapper>
           <FormLabel>Name</FormLabel>
           <FormItem
@@ -28,13 +35,13 @@ export const InputForm = ({addContact}) => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <FormBtn tape="submit">Add contact</FormBtn>
+          <FormBtn type="submit">Add contact</FormBtn>
         </FormWrapper>
       </Formik>   
     )
   
 }
 
-InputForm.propTypes = {
-  addContact: PropTypes.func,
-};
+// InputForm.propTypes = {
+//   addContact: PropTypes.func,
+// };
