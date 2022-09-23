@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
 import { Box } from 'components/Box';
 import { Section } from 'components/Section/Section';
 import { InputForm } from 'components/Form/Form';
