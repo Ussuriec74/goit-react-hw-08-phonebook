@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { nanoid } from "nanoid";
 import { useDispatch } from 'react-redux';

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateFilter } from 'redux/filterslice';
