@@ -10,8 +10,7 @@ export const Filter = () => {
 
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilter);
-
-  const handleFilterChange = event => dispatch(updateFilter(event.currentTarget.value));
+  const handleFilterChange = event => dispatch(updateFilter(event.target.value));
 
   return (
     <FilterLabel>Find contacts by name

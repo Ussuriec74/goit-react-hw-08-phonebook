@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
 import { ContactsItem, DeleteBtn } from 'components/ContactsItem/ContactsItem.styled'
@@ -16,8 +16,8 @@ export const ContactsListItem = ({ id, name, number }) => {
   );
 }
 
-// ContactsListItem.prototype = {
-//   name: PropTypes.string.isRequired,
-//   number: PropTypes.string.isRequired,
-//   onClick: PropTypes.func.isRequired,
-// };
+ContactsListItem.prototype = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};

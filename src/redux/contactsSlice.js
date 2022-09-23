@@ -5,10 +5,17 @@ const contactsSlice = createSlice({
   initialState: [],
   reducers: {
     addContact(state, action) {
+      for (const contact of state) {
+        if (contact.name === action.payload.name) {
+          return alert(
+            `${action.payload.name} is already in contacts`
+          );
+        }
+      }
       state.push(action.payload);
     },
     deleteContact(state, action) {
-      state = state.filter(item => item.id !== action.payload);
+      return state.filter(item => item.id !== action.payload);
     },
   },
 });

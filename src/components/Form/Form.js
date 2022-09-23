@@ -9,17 +9,15 @@ export const InputForm = () => {
 
   const dispatch = useDispatch();
    
-  const handleSubmit = event => {
-    event.preventDefault();
-    const form = event.currentTarget;
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(
       addContact({
         id: nanoid(),
-        name: form.elements.name.value,
-        number: form.elements.number.value,
+        name: values.name,
+        number: values.number,
       })
     );
-    form.reset();
+    resetForm();
   };
 
   
