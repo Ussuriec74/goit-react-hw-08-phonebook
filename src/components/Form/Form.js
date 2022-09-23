@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { nanoid } from "nanoid";
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/contactsSlice'; 
 import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
 
 export const InputForm = () => {
@@ -10,13 +10,15 @@ export const InputForm = () => {
   const dispatch = useDispatch();
    
   const handleSubmit = event => {
-    // event.preventDefault();
+    event.preventDefault();
     const form = event.currentTarget;
-    dispatch(addContact({
-      id: nanoid(),
-      name: form.elements.name.value,
-      number: form.elements.number.value,
-    }));
+    dispatch(
+      addContact({
+        id: nanoid(),
+        name: form.elements.name.value,
+        number: form.elements.number.value,
+      })
+    );
     form.reset();
   };
 
