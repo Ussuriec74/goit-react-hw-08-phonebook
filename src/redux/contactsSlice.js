@@ -3,22 +3,29 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const contactsSlice = createSlice({
-  name: 'root',
-  initialState: [],
+  name: 'contacts',
+  initialState: {
+    items: [],
+    filter: '',
+  },
   reducers: {
     addContact(state, action) {
-      for (const contact of state) {
-        if (contact.name === action.payload.name) {
+      for (const item of state.items) {
+        if (item.name === action.payload.name) {
           return alert(
             `${action.payload.name} is already in contacts`
           );
         }
       }
-      state.push(action.payload);
+      state.items.push(action.payload);
     },
     deleteContact(state, action) {
-      return state.filter(item => item.id !== action.payload);
+      state.items = state.items.filter(item => item.id !== action.payload);
     },
+ 
+    updateFilter(state, action) {
+      state.filter = action.payload;
+    }
   },
 });
 
@@ -29,4 +36,4 @@ const persistConfig = {
 
 export const contactsReducer = persistReducer(persistConfig, contactsSlice.reducer);
 
-export const { addContact, deleteContact } = contactsSlice.actions;
+export const { addContact, deleteContact, updateFilter } = contactsSlice.actions;
