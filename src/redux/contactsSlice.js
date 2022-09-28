@@ -1,39 +1,72 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchContacts, addContact, deleteContact } from './operations';
+
+const contactsInitialState = {
+  items: [],
+  filter: '',
+  isLoading: false,
+  error: null,
+};
+
+const handlePending = state => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: {
-    items: [],
-    filter: '',
-  },
+  initialState: contactsInitialState,
   reducers: {
-    addContact(state, action) {
-      for (const item of state.items) {
-        if (item.name === action.payload.name) {
-          return alert(
-            `${action.payload.name} is already in contacts`
-          );
-        }
-      }
-      state.items.push(action.payload);
-    },
-    deleteContact(state, action) {
-      state.items = state.items.filter(item => item.id !== action.payload);
-    },
- 
     updateFilter(state, action) {
       state.filter = action.payload;
     }
   },
+  extraReducers: buider => {
+    buider
+      .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addCase(addContact.fulfilled, (state, action) => {
+        for (const item of state.items) {
+          if (item.name === action.payload.name) {
+            return alert(
+              `${action.payload.name} is already in contacts`
+            );
+          }
+        }
+        state.items.push(action.payload);
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        const idx = state.items.findIndex(item => item.id === action.payload.id);
+        console.log({idx, a: action.payload});
+        state.items.splice(idx, 1);
+      })
+      .addMatcher(isAnyOf(
+        fetchContacts.fulfilled,
+        addContact.fulfilled,
+        deleteContact.fulfilled
+      ), state => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addMatcher(isAnyOf(
+        fetchContacts.pending,
+        addContact.pending,
+        deleteContact.pending
+      ), handlePending)
+      .addMatcher(isAnyOf(
+        fetchContacts.rejected,
+        addContact.rejected,
+        deleteContact.rejected
+      ), handleRejected);
+  }
 });
+export const contactsReducer =  contactsSlice.reducer;
 
-const persistConfig = {
-  key: 'contacts',
-  storage,
-};
-
-export const contactsReducer = persistReducer(persistConfig, contactsSlice.reducer);
-
-export const { addContact, deleteContact, updateFilter } = contactsSlice.actions;
+export const {
+  updateFilter
+} = contactsSlice.actions;

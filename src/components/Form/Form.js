@@ -1,7 +1,6 @@
 import { Formik } from 'formik';
-import { nanoid } from "nanoid";
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice'; 
+import { addContact } from 'redux/operations';
 import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
 
 export const InputForm = () => {
@@ -11,7 +10,6 @@ export const InputForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       addContact({
-        id: nanoid(),
         name: values.name,
         number: values.number,
       })
