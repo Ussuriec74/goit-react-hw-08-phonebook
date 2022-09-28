@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = "https://6334360290a73d0fede99f96.mockapi.io/api/phonebook/";
 
@@ -24,7 +25,19 @@ export const addContact = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (name, { getState, extra }) => {
+      const contacts = getState();
+      for (const item of contacts.contacts.items) {
+        if (item.name === name.name) {
+          Notify.warning(`${name.name} is already in contacts`);
+        return false;
+      }
+      }
+    }
   }
+   
 );
 
 export const deleteContact = createAsyncThunk(
