@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/operations';
 import { FormWrapper, FormItem, FormLabel, FormBtn } from 'components/Form/Form.styled';
 
 export const InputForm = () => {
