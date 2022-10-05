@@ -8,7 +8,7 @@ import { InputForm } from 'components/Form/Form';
 import { ContactList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
 
-export const App = () => {
+export const PhonebookPage = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
