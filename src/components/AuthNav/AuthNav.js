@@ -5,7 +5,7 @@ export const AuthNav = () => {
   return (
     <Box mr={5}>
       <HeaderNavLink to="/register">
-        Register
+        Sign up
       </HeaderNavLink>
       <HeaderNavLink to="/login">
         Log in
