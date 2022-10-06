@@ -3,7 +3,7 @@ import { HomePage } from "components/HomePage/HomePage";
 
 const Home = () => {
   return (
-    <Box>
+    <Box pt={5}>
       <HomePage />
     </Box>
   );
