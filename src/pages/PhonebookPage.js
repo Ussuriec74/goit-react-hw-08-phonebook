@@ -19,7 +19,7 @@ const PhonebookPage = () => {
   }, [dispatch]);
 
   return (
-      <Box>
+      <Box display="flex" justifyContent="space-between" p={5}>
         <Section title="Phonebook">
           <InputForm />
         </Section>
