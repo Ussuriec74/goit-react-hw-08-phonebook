@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { ImExit } from 'react-icons'
+import { MdDelete } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 import { ContactsItem, DeleteBtn } from 'components/ContactsItem/ContactsItem.styled'
@@ -12,7 +12,7 @@ export const ContactsListItem = ({ id, name, number }) => {
   return (
     <ContactsItem >
       <p>{name}: {number}</p>
-      <DeleteBtn onClick={handleDelete}><ImExit /></DeleteBtn>
+      <DeleteBtn onClick={handleDelete}><MdDelete /></DeleteBtn>
     </ContactsItem>
   );
 }
