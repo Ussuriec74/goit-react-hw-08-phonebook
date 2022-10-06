@@ -1,7 +1,12 @@
+import { Box } from "components/Box";
+import { HomePage } from "components/HomePage/HomePage";
+
 const Home = () => {
   return (
-    <h1>Home Page</h1>
-  )
+    <Box>
+      <HomePage />
+    </Box>
+  );
 }
 
 export default Home;
