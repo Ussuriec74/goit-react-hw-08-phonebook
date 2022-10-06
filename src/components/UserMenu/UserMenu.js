@@ -9,7 +9,7 @@ export const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <Box display="flex" mr={5}>
+    <Box display="flex" gridGap={3} mr={5}>
       <UserMenuText>Welcome, {user.name}</UserMenuText>
       <button type="button" onClick={() => dispatch(logOut())}>
         Logout
