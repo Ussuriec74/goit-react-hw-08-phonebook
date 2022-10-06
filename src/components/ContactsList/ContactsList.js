@@ -22,7 +22,7 @@ export const ContactList = () => {
 
   
   return (
-    <Box as="ul" ml={6} mt={5} width="480px">
+    <Box as="ul" ml={1} mt={5} width="480px">
       {filteredContacts.map(({ name, id, number }) => (
         <ContactsListItem key={id} id={id} name={name} number={number} />
       ))}
