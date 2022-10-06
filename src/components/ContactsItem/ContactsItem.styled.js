@@ -19,7 +19,7 @@ export const ContactsItem = styled.li`
 export const DeleteBtn = styled.button`
   margin-left: auto;
   background-color: ${p => p.theme.colors.btnColor};
-  border-radius: ${p => p.theme.radii.small};
+  /* border-radius: ${p => p.theme.radii.small}; */
 
   &:focus, &:hover {
     background-color: ${p => p.theme.colors.accentColor};
