@@ -18,6 +18,7 @@ export const theme = {
     m: '20px',
     l: '24px',
     xl: '32px',
+    xxl: '48px',
   },
   fonts: {
     body: "Open Sans, sans-serif",
