@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { ImExit } from 'react-icons/im';
 import { useAuth } from "hooks/useAuth";
 import { logOut } from "redux/auth/operations";
 import { Box } from "components/Box";
@@ -12,7 +13,7 @@ export const UserMenu = () => {
     <Box display="flex" gridGap={3} mr={5}>
       <UserMenuText>Welcome, {user.name}</UserMenuText>
       <button type="button" onClick={() => dispatch(logOut())}>
-        Logout
+        <ImExit />
       </button>
     </Box>
   )
