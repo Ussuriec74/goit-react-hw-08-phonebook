@@ -3,7 +3,7 @@ import { ImExit } from 'react-icons/im';
 import { useAuth } from "hooks/useAuth";
 import { logOut } from "redux/auth/operations";
 import { Box } from "components/Box";
-import { UserMenuText } from "./UserMenu.styled";
+import { UserMenuText, ExitButton } from "./UserMenu.styled";
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ export const UserMenu = () => {
   return (
     <Box display="flex" gridGap={3} mr={5}>
       <UserMenuText>Welcome, {user.name}</UserMenuText>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <ExitButton type="button" onClick={() => dispatch(logOut())}>
         <ImExit />
-      </button>
+      </ExitButton>
     </Box>
   )
 }
