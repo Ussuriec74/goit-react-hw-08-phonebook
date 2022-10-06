@@ -9,8 +9,8 @@ export const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <Box display="flex" gap={4}>
-      <UserMenuText>Welcome {user.name}</UserMenuText>
+    <Box display="flex" mr={5}>
+      <UserMenuText>Welcome, {user.name}</UserMenuText>
       <button type="button" onClick={() => dispatch(logOut())}>
         Logout
       </button>

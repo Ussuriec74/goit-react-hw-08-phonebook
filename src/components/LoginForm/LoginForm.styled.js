@@ -6,6 +6,7 @@ export const LoginFormWrapper = styled(Form)`
   flex-direction: column;
   padding: ${p => p.theme.space[4]}px;
   margin-top: ${p => p.theme.space[5]}px;
+  margin-left: ${p => p.theme.space[5]}px;
   width: ${p => p.theme.space[9]}px;
   border: ${p => p.theme.borders.normal} black;
   border-radius: ${p => p.theme.radii.normal};

@@ -3,7 +3,7 @@ import { HeaderNavLink } from "./AuthNav.styled";
 
 export const AuthNav = () => {
   return (
-    <Box>
+    <Box mr={5}>
       <HeaderNavLink to="/register">
         Register
       </HeaderNavLink>
