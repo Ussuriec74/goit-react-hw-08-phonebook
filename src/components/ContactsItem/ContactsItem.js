@@ -8,7 +8,7 @@ export const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => dispatch(deleteContact(id))
-  console.log(id);
+ 
   return (
     <ContactsItem >
       <p>{name}: {number}</p>
